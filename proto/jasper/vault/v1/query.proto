@@ -1,0 +1,74 @@
+syntax = "proto3";
+package jasper.vault.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "jasper/vault/v1/genesis.proto";
+import "jasper/vault/v1/vault.proto";
+import "google/api/annotations.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/JasperNetwork/jasper/x/vault/types";
+
+// Query defines the gRPC query service.
+service Query {
+  // Retrieves registered public key pairs
+  rpc PublicKeyPairs(QueryPublicKeyPairsRequest) returns (QueryPublicKeyPairsResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/public_key_pairs";
+  }
+
+  // Retrieves  signed option payments
+  rpc SignedOptionPayments(QuerySignedOptionPaymentsRequest) returns (QuerySignedOptionPaymentsResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/signed_option_payments";
+  }
+
+  // SignedOptionPayment retrieves a signed option
+  rpc SignedOptionPayment(QuerySignedOptionPaymentRequest) returns (QuerySignedOptionPaymentResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/signed_option_payments/{proofs}";
+  }
+
+}
+
+// QueryPublicKeyPairsRequest is the request type for the Query/PublicKeyPairs RPC
+// method.
+message QueryPublicKeyPairsRequest {
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryPublicKeyPairsResponse is the response type for the Query/PublicKeyPairs RPC
+// method.
+message QueryPublicKeyPairsResponse {
+  repeated PublicKeyNodeIdPair public_key_node_id_pair = 1 [ (gogoproto.nullable) = false ];
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+
+// QueryPublicKeyPairsRequest is the request type for the Query/SignedOptionPayments RPC
+// method.
+message QuerySignedOptionPaymentsRequest {
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryPublicKeyPairsResponse is the response type for the Query/SignedOptionPayments RPC
+// method.
+message QuerySignedOptionPaymentsResponse {
+  repeated SignOptionPayment signed_option_payment = 1 [ (gogoproto.nullable) = false ];
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+
+// QuerySignedOptionPaymentRequest is the request type for the Query/OptionPayment RPC
+// method.
+message QuerySignedOptionPaymentRequest {
+  // pagination defines an optional pagination for the request.
+  string proofs = 1 ;
+}
+
+// QueryPublicKeyPairsResponse is the response type for the Query/PublicKeyPairs RPC
+// method.
+message QuerySignedOptionPaymentResponse {
+  SignOptionPayment signed_option_payment = 1 [ (gogoproto.nullable) = false ];
+}

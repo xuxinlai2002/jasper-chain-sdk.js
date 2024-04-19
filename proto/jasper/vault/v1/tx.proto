@@ -1,0 +1,68 @@
+syntax = "proto3";
+package jasper.vault.v1;
+
+import "google/api/annotations.proto";
+import "gogoproto/gogo.proto";
+import "jasper/vault/v1/vault.proto";
+
+option go_package = "github.com/JasperNetwork/jasper/x/vault/types";
+
+// Msg defines the vault Msg service.
+service Msg {
+  // register public key for vault service
+  rpc RegisterPublicKey(MsgRegisterPublicKey) returns (MsgRegisterPublicKeyResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/tx/register_public_key";
+  };
+
+  // register public key for vault service
+  rpc SignOptionPayment(MsgSignOptionPayment) returns (MsgSignOptionPaymentResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/tx/sign_option_payment";
+  };
+}
+
+// MsgRegisterPublicKey defines a Msg to register public key
+message MsgRegisterPublicKey {
+  // publicKey of vault logic
+  string public_key = 1;
+  // node id of jasper chain
+  string node_id = 2;
+  // register user
+  string sender = 3;
+}
+
+// MsgRegisterPublicKeyResponse returns no fields
+message MsgRegisterPublicKeyResponse {}
+
+
+// MsgSignOptionPayment defines a Msg to sign option payment
+message MsgSignOptionPayment {
+
+  // order id of option payment
+  string order_id = 1;
+  // from address to the payment
+  string from = 2;
+  // to address of the payment
+  string to = 3;
+  // amount for the payment
+  string amount = 4;
+  // chain information of the chain
+  string chain = 5;
+  // details of the transaction
+  string payload = 6;
+  // provide the proofs to support the sign
+  string proofs = 7;
+  // sender of the sign option
+  string sender = 8;
+
+}
+
+// MsgSignOptionPaymentResponse returns no fields
+message MsgSignOptionPaymentResponse {
+
+  // order id of option payment
+  string order_id = 1;
+
+  // signature of the payload
+  string signature = 2;
+
+}

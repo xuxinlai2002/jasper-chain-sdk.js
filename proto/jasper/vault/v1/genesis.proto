@@ -1,0 +1,25 @@
+syntax = "proto3";
+package jasper.vault.v1;
+import "jasper/vault/v1/vault.proto";
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/JasperNetwork/jasper/x/vault/types";
+
+// GenesisState defines the module's genesis state.
+message GenesisState {
+  // module parameters
+  Params params = 1 [ (gogoproto.nullable) = false ];
+  // registered token pairs
+  repeated PublicKeyNodeIdPair public_key_node_id_pair = 2 [ (gogoproto.nullable) = false ];
+}
+
+// Params defines the vault module params
+message Params {
+  // parameter to enable the intrarelaying of Cosmos coins <--> vault tokens.
+  bool enable_vault = 1;
+  // parameter to enable the EVM hook to convert an vault token to a Cosmos
+  // Coin by transferring the Tokens through a MsgEthereumTx to the
+  // ModuleAddress Ethereum address.
+  bool enable_evm_hook = 2 [ (gogoproto.customname) = "EnableEVMHook" ];
+}
