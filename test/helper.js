@@ -1,4 +1,3 @@
-//xxl TOOD
 const {
   SigningStargateClient
 } = require('@uptsmart/stargate');
@@ -53,9 +52,7 @@ async function sendMsgsTx(wallet,address, msgs, amount, data) {
     wallet
   )
 
-  console.log("###xxl sendMsgsTx",[address, msgs[0], fee, data]);
   const result = await client.sendMsgsTx(address, msgs, fee, data);
-  console.log("###xxl result",result);
   return result;
 
 

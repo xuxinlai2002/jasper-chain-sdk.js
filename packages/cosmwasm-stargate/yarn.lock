@@ -776,9 +776,9 @@
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
 
-"@uptickjs/proto-signing@^0.27.7", "@uptickjs/proto-signing@^0.27.8":
+"@jasperjs/proto-signing@^0.27.7", "@jasperjs/proto-signing@^0.27.8":
   version "0.27.18"
-  resolved "https://registry.yarnpkg.com/@uptickjs/proto-signing/-/proto-signing-0.27.18.tgz#4ae5e4644459a52da6066910671c431dcc2af412"
+  resolved "https://registry.yarnpkg.com/@jasperjs/proto-signing/-/proto-signing-0.27.18.tgz#4ae5e4644459a52da6066910671c431dcc2af412"
   integrity sha512-7SD6pluVzk9Cyt3Derb/W8UWNY4xZ6fBTzTHoNzb1tYl046kYEY1XmRlQazAoNUH2LZB8YhD0Al9Q5JbsfZyUg==
   dependencies:
     "@cosmjs/amino" "0.27.1"
@@ -788,9 +788,9 @@
     long "^4.0.0"
     protobufjs "~6.10.2"
 
-"@uptickjs/stargate@^0.27.15":
+"@jasperjs/stargate@^0.27.15":
   version "0.27.19"
-  resolved "https://registry.yarnpkg.com/@uptickjs/stargate/-/stargate-0.27.19.tgz#a3895740b2729d14c7a498618c0f7b39f8252a46"
+  resolved "https://registry.yarnpkg.com/@jasperjs/stargate/-/stargate-0.27.19.tgz#a3895740b2729d14c7a498618c0f7b39f8252a46"
   integrity sha512-pwLb/eq29gMmPVUaIrxwVO1B3gb/nQgJrLooWURORhC1uiXxAgdzAaRXXYYDXnykUKY/p5+ulc45kyw6n/H0Iw==
   dependencies:
     "@confio/ics23" "^0.6.3"
@@ -801,7 +801,7 @@
     "@cosmjs/tendermint-rpc" "0.32.2"
     "@cosmjs/utils" "0.27.1"
     "@types/mocha" "^10.0.1"
-    "@uptickjs/proto-signing" "^0.27.7"
+    "@jasperjs/proto-signing" "^0.27.7"
     cosmjs-types "^0.4.0"
     long "^4.0.0"
     protobufjs "~6.10.2"

@@ -1,5 +1,5 @@
 {
-  "name": "@uptickjs/cosmwasm-stargate",
+  "name": "@jasperjs/cosmwasm-stargate",
   "version": "0.27.18",
   "description": "CosmWasm SDK",
   "contributors": [
@@ -42,8 +42,8 @@
     "@cosmjs/crypto": "^0.27.1",
     "@cosmjs/encoding": "^0.27.1",
     "@cosmjs/math": "^0.27.1",
-    "@uptickjs/proto-signing": "^0.27.8",
-    "@uptickjs/stargate": "^0.27.15",
+    "@jasperjs/proto-signing": "^0.27.8",
+    "@jasperjs/stargate": "^0.27.15",
     "@cosmjs/tendermint-rpc": "^0.27.1",
     "@cosmjs/utils": "^0.27.1",
     "cosmjs-types": "^0.5.2",
