@@ -1,7 +1,6 @@
 const {
   SigningStargateClient
 } = require('@uptsmart/stargate');
-// } = require('../packages/stargate/build');
 
 const {
     Slip10RawIndex
@@ -29,7 +28,7 @@ async function getWallet(){
 
   const wallet = await  DirectSecp256k1HdWallet.fromMnemonic(mnemonic,{
     "hdPaths": [make60Path()],
-    "prefix": "uptick",
+    "prefix": "jasper",
   })
   return wallet;
 
@@ -41,7 +40,7 @@ async function sendMsgsTx(wallet,address, msgs, amount, data) {
 
   let fee = {
     amount: [{
-        denom: 'auptick',
+        denom: 'ajasper',
         amount: amount,
     }],
     gas: '10000000',
