@@ -13,7 +13,7 @@ import {
   OfflineSigner,
   Registry,
   TxBodyEncodeObject,
-} from "@jasperjs/proto-signing";
+} from "@uptsmart/proto-signing";
 
 //xxl swift local
 // import {
@@ -78,27 +78,10 @@ import {
   MsgConnectionOpenTry,
 } from "cosmjs-types/ibc/core/connection/v1/tx";
 
-//xxl ## import 
-//const nft_tx_pb= require( './proto-types/uptick/collection/v1/tx_pb');
-//const nft_tx_pb = require( '../../proto-types/uptick/collection/v1/tx_pb');
-const nft_tx_pb = require("@jasperjs/proto-types/src/uptick/collection/v1/tx_pb");
-
-//xxl ## add erc20 convert msg 0622
-const erc20_tx_pb = require("@jasperjs/proto-types/src/uptick/erc20/v1/tx_pb");
-
-//xxl 02 local
-// const erc721_tx_pb = require("../../proto-types/src/uptick/erc721/v1/tx_pb")
-//xxl 02 npm
-const erc721_tx_pb = require("@jasperjs/proto-types/src/uptick/erc721/v1/tx_pb")
-
-//xxl 02 local
-// const nft_transfer_tx_pb = require("../../proto-types/src/ibc/applications/nft_transfer/v1/tx_pb")
-//xxl 02 npm
-const nft_transfer_tx_pb = require("@jasperjs/proto-types/src/ibc/applications/nft_transfer/v1/tx_pb")
 
 //xxl 03
-const cw721_tx_pb = require("@jasperjs/proto-types/src/uptick/cw721/v1/tx_pb")
-
+//TODO -----
+const vault_tx_pb = require("@uptsmart/proto-types/src/jasper/vault/v1/tx_pb")
 
 import Long from "long";
 
@@ -156,28 +139,9 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
   ["/ibc.core.connection.v1.MsgConnectionOpenTry", MsgConnectionOpenTry],
 
   //xxl 01 list 
-  ["/uptick.collection.v1.MsgIssueDenom", nft_tx_pb.MsgIssueDenom],
-  ["/uptick.collection.v1.MsgMintNFT", nft_tx_pb.MsgMintNFT],
-  ["/uptick.collection.v1.MsgTransferNFT", nft_tx_pb.MsgTransferNFT],
-  ["/uptick.collection.v1.MsgTransferDenom", nft_tx_pb.MsgTransferDenom],
-
-  ["/uptick.erc20.v1.MsgConvertERC20", erc20_tx_pb.MsgConvertERC20],
-  ["/uptick.erc20.v1.MsgConvertCoin", erc20_tx_pb.MsgConvertCoin],
-  ["/uptick.erc20.v1.MsgTransferERC20", erc20_tx_pb.MsgTransferERC20],
-
-  //xxl 02 list 
-  ["/uptick.erc721.v1.MsgConvertERC721", erc721_tx_pb.MsgConvertERC721],
-  ["/uptick.erc721.v1.MsgConvertNFT", erc721_tx_pb.MsgConvertNFT],
-  ["/uptick.erc721.v1.MsgTransferERC721", erc721_tx_pb.MsgTransferERC721],
-
-  //xxl 03 list 
-  ["/ibc.applications.nft_transfer.v1.MsgTransfer", nft_transfer_tx_pb.MsgTransfer],
-
-  //xxl 04 list 
-  ["/uptick.cw721.v1.MsgConvertCW721", cw721_tx_pb.MsgConvertCW721],
-  ["/uptick.cw721.v1.MsgConvertNFT", cw721_tx_pb.MsgConvertNFT],
-  ["/uptick.cw721.v1.MsgTransferCW721", cw721_tx_pb.MsgTransferCW721],
-
+  ["/jasper.vault.v1.MsgRegisterPublicKey", vault_tx_pb.MsgRegisterPublicKey],
+  ["/jasper.vault.v1.MsgSignOptionPayment", vault_tx_pb.MsgSignOptionPayment],
+ 
 ];
 
 function createDefaultRegistry(): Registry {
@@ -304,7 +268,6 @@ export class SigningStargateClient extends StargateClient {
     fee: StdFee | "auto" | number,
     memo = "",
   ){
-    console.log("xxl test ");
     return this.signAndBroadcast(senderAddress,sendMsgs, fee, memo);
   }
 
@@ -581,7 +544,7 @@ export class SigningStargateClient extends StargateClient {
       throw new Error("Failed to retrieve account from signer");
     }
     const pubkey = encodePubkey(encodeSecp256k1Pubkey(accountFromSigner.pubkey));
-    if(accountFromSigner.address.indexOf("uptick") != -1){
+    if(accountFromSigner.address.indexOf("jasper") != -1){
       pubkey.typeUrl = "/ethermint.crypto.v1.ethsecp256k1.PubKey";
     }
     else{

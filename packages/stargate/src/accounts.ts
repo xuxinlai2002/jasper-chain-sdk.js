@@ -1,6 +1,5 @@
 import { Pubkey } from "@cosmjs/amino";
 import { Uint64 } from "@cosmjs/math";
-import { decodePubkey } from "@jasperjs/proto-signing";
 import { assert } from "@cosmjs/utils";
 import { BaseAccount, ModuleAccount } from "cosmjs-types/cosmos/auth/v1beta1/auth";
 import {
@@ -11,7 +10,7 @@ import {
 } from "cosmjs-types/cosmos/vesting/v1beta1/vesting";
 
 //xxl jasper 00 add accounts require
-const auth_auth_pb = require("@jasperjs/proto-types/src/ethermint/types/v1/account_pb");
+const auth_auth_pb = require("@uptsmart/proto-types/src/ethermint/types/v1/account_pb");
 // const auth_auth_pb = require('../../proto-types/src/ethermint/types/v1/account_pb');
                     
 import { Any } from "cosmjs-types/google/protobuf/any";

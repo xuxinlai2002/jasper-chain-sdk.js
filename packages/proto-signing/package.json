@@ -1,9 +1,9 @@
 {
-  "name": "@jasperjs/proto-signing",
-  "version": "0.27.18",
+  "name": "@uptsmart/proto-signing",
+  "version": "0.60.1",
   "description": "Utilities for protobuf based signing (Cosmos SDK 0.46+)",
   "contributors": [
-    "Uptick <starryrepublican@gmail.com>"
+    "uptsmart <starryrepublican@gmail.com>"
   ],
   "license": "Apache-2.0",
   "main": "build/index.js",

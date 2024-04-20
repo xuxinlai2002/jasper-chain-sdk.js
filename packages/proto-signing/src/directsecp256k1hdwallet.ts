@@ -339,7 +339,7 @@ export class DirectSecp256k1HdWallet implements OfflineDirectSigner {
     const { privkey } = Slip10.derivePath(Slip10Curve.Secp256k1, this.seed, hdPath);
 
     const { pubkey } = await Secp256k1.makeKeypair(privkey);
-    if(prefix=='uptick'){
+    if(prefix=='jasper'){
       return {
         privkey: privkey,
         pubkey: pubkey,
@@ -358,16 +358,16 @@ export class DirectSecp256k1HdWallet implements OfflineDirectSigner {
       this.accounts.map(async ({ hdPath, prefix }) => {
         const { privkey, pubkey } = await this.getKeyPair(hdPath,prefix);
         let address="";
-        if(prefix=='uptick'){
+        if(prefix=='jasper'){
           const address0x = `0x${toHex(keccak256(pubkey.slice(1)).slice(-20))}`;
          
           let wordsbyte = keccak256(pubkey.slice(1)).slice(-20);
           address = Bech32.encode(prefix,wordsbyte);
-          let uptickPubkey=Secp256k1.compressPubkey(pubkey);
+          let jasperPubkey=Secp256k1.compressPubkey(pubkey);
           return {
             algo: "secp256k1" as const,
             privkey: privkey,
-            pubkey: uptickPubkey,
+            pubkey: jasperPubkey,
             address: address,
           };
 

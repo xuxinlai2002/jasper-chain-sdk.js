@@ -1,9 +1,9 @@
 {
-  "name": "@jasperjs/proto-types",
-  "version": "0.27.18",
+  "name": "@uptsmart/proto-types",
+  "version": "0.60.0",
   "description": "Utility functions for working with WebSockets",
   "contributors": [
-    "uptick <starryrepublican@gmail.com>"
+    "jasper <jasper@gmail.com>"
   ],
   "license": "Apache-2.0",
   "files": [

@@ -43,11 +43,9 @@
     "@cosmjs/cosmwasm-stargate": "0.27.1",
     "@cosmjs/crypto": "0.27.1",
     "@cosmjs/encoding": "0.27.1",
-
-    "@jasperjs/proto-types": "0.27.18",
-    "@jasperjs/proto-signing": "0.27.18",
-    "@jasperjs/stargate": "0.27.19",
-
+    "@uptsmart/proto-signing": "0.60.1",
+    "@uptsmart/proto-types": "0.60.0",
+    "@uptsmart/stargate": "^0.60.4",
     "chai": "4.3.4",
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.5",

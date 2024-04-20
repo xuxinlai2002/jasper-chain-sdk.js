@@ -20,7 +20,7 @@ export class DirectSecp256k1Wallet implements OfflineDirectSigner {
    */
   public static async fromKey(privkey: Uint8Array, prefix = "cosmos"): Promise<DirectSecp256k1Wallet> {
     const uncompressed = (await Secp256k1.makeKeypair(privkey)).pubkey;
-	if(prefix=='uptick'){
+	if(prefix=='jasper'){
 		   return new DirectSecp256k1Wallet(privkey,Secp256k1.compressPubkey(uncompressed),uncompressed, prefix);
 	}else{
 		   return new DirectSecp256k1Wallet(privkey, Secp256k1.compressPubkey(uncompressed), new Uint8Array(), prefix);
@@ -30,19 +30,19 @@ export class DirectSecp256k1Wallet implements OfflineDirectSigner {
 
   private readonly pubkey: Uint8Array;
   private readonly privkey: Uint8Array;
-  private readonly uptickPubkey: Uint8Array;
+  private readonly jasperPubkey: Uint8Array;
   private readonly prefix: string;
 
-  private constructor(privkey: Uint8Array, pubkey: Uint8Array,uptickPubkey: Uint8Array, prefix: string) {
+  private constructor(privkey: Uint8Array, pubkey: Uint8Array,jasperPubkey: Uint8Array, prefix: string) {
     this.privkey = privkey;
     this.pubkey = pubkey;
-	this.uptickPubkey = uptickPubkey;
+	this.jasperPubkey = jasperPubkey;
     this.prefix = prefix;
   }
 
   private get address(): string {
-	      if(this.prefix=='uptick'){
-	              let wordsbyte = keccak256(this.uptickPubkey.slice(1)).slice(-20);
+	      if(this.prefix=='jasper'){
+	              let wordsbyte = keccak256(this.jasperPubkey.slice(1)).slice(-20);
 	            let  address = Bech32.encode(this.prefix, wordsbyte);
 	            console.log("Uptick_address==",address);
 	  

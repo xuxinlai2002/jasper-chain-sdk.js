@@ -1,7 +1,7 @@
 {
-  "name": "@jasperjs/stargate",
-  "version": "0.1.0",
-  "description": "Utilities for jasper v0.1.0",
+  "name": "@uptsmart/stargate",
+  "version": "0.60.4",
+  "description": "Utilities for jasper v0.60.4",
   "contributors": [
 	 "jasper <sjasper@gmail.com>"
   ],
@@ -48,7 +48,7 @@
 
     "@cosmjs/utils": "0.27.1",
     "@types/mocha": "^10.0.1",
-    "@jasperjs/proto-signing": "^0.27.7",
+    "@uptsmart/proto-signing": "^0.60.0",
     "cosmjs-types": "^0.4.0",
     "long": "^4.0.0",
     "protobufjs": "~6.10.2",
