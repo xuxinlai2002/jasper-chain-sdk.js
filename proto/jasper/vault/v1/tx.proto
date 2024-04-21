@@ -53,7 +53,8 @@ message MsgSignOptionPayment {
   string proofs = 7;
   // sender of the sign option
   string sender = 8;
-
+  // memo of the payment
+  string  memo = 9;
 }
 
 // MsgSignOptionPaymentResponse returns no fields

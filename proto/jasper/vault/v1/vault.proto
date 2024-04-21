@@ -32,7 +32,11 @@ message SignOptionPayment {
   string payload = 6;
   // provide the proofs to support the sign
   string proofs = 7;
+  // signature from the node
+  string signature = 8;
+  // memo of the payment
+  string  memo = 9;
   // sender of the sign option
-  string sender = 8;
+  string sender = 10;
 }
 

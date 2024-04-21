@@ -439,7 +439,8 @@ proto.jasper.vault.v1.MsgSignOptionPayment.toObject = function(includeInstance, 
     chain: jspb.Message.getFieldWithDefault(msg, 5, ""),
     payload: jspb.Message.getFieldWithDefault(msg, 6, ""),
     proofs: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    sender: jspb.Message.getFieldWithDefault(msg, 8, "")
+    sender: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    memo: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -507,6 +508,10 @@ proto.jasper.vault.v1.MsgSignOptionPayment.deserializeBinaryFromReader = functio
     case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setSender(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMemo(value);
       break;
     default:
       reader.skipField();
@@ -590,6 +595,13 @@ proto.jasper.vault.v1.MsgSignOptionPayment.serializeBinaryToWriter = function(me
   if (f.length > 0) {
     writer.writeString(
       8,
+      f
+    );
+  }
+  f = message.getMemo();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
       f
     );
   }
@@ -737,6 +749,24 @@ proto.jasper.vault.v1.MsgSignOptionPayment.prototype.getSender = function() {
  */
 proto.jasper.vault.v1.MsgSignOptionPayment.prototype.setSender = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional string memo = 9;
+ * @return {string}
+ */
+proto.jasper.vault.v1.MsgSignOptionPayment.prototype.getMemo = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.jasper.vault.v1.MsgSignOptionPayment} returns this
+ */
+proto.jasper.vault.v1.MsgSignOptionPayment.prototype.setMemo = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
