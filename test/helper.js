@@ -10,7 +10,7 @@ const {
 } = require('@uptsmart/proto-signing')
 
 const mnemonic='angry twist harsh drastic left brass behave host shove marriage fall update business leg direct reward object ugly security warm tuna model broccoli choice';
-const rpcEndpoint = 'http://127.0.0.1:26657/'
+const rpcEndpoint = 'http://165.22.108.139:26657/'
 
 function make60Path() {
 

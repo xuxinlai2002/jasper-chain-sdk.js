@@ -14,10 +14,16 @@ service Msg {
     option (google.api.http).get = "/jasper/vault/v1/tx/register_public_key";
   };
 
-  // register public key for vault service
+  // sign option payment for btc and evm erc712
   rpc SignOptionPayment(MsgSignOptionPayment) returns (MsgSignOptionPaymentResponse) {
     option (google.api.http).get = "/jasper/vault/v1/tx/sign_option_payment";
   };
+
+  // sign option price for
+  rpc SignOptionPrice(MsgSignOptionPrice) returns (MsgSignOptionPriceResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/tx/sign_option_price";
+  };
+
 }
 
 // MsgRegisterPublicKey defines a Msg to register public key
@@ -67,3 +73,32 @@ message MsgSignOptionPaymentResponse {
   string signature = 2;
 
 }
+
+// MsgSignOptionPrice defines a Msg to sign option payment
+message MsgSignOptionPrice {
+
+  // option asset address:eth btc
+  string optionAsset = 1;
+
+  // Option type: 0-call 1-put;
+  string payload = 2;
+
+  // sender of the sign option
+  string sender = 3;
+
+}
+
+// MsgSignOptionPriceResponse returns no fields
+message MsgSignOptionPriceResponse {
+
+  // option asset
+  string optionAsset = 1;
+
+  // count of the option price
+  uint64 count = 2;
+
+  // timestamp
+  uint64 timestamp = 3;
+}
+
+

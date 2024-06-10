@@ -204,5 +204,66 @@ proto.jasper.vault.v1.MsgPromiseClient.prototype.signOptionPayment =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.jasper.vault.v1.MsgSignOptionPrice,
+ *   !proto.jasper.vault.v1.MsgSignOptionPriceResponse>}
+ */
+const methodDescriptor_Msg_SignOptionPrice = new grpc.web.MethodDescriptor(
+  '/jasper.vault.v1.Msg/SignOptionPrice',
+  grpc.web.MethodType.UNARY,
+  proto.jasper.vault.v1.MsgSignOptionPrice,
+  proto.jasper.vault.v1.MsgSignOptionPriceResponse,
+  /**
+   * @param {!proto.jasper.vault.v1.MsgSignOptionPrice} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.jasper.vault.v1.MsgSignOptionPriceResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.jasper.vault.v1.MsgSignOptionPrice} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.jasper.vault.v1.MsgSignOptionPriceResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.jasper.vault.v1.MsgSignOptionPriceResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.jasper.vault.v1.MsgClient.prototype.signOptionPrice =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/jasper.vault.v1.Msg/SignOptionPrice',
+      request,
+      metadata || {},
+      methodDescriptor_Msg_SignOptionPrice,
+      callback);
+};
+
+
+/**
+ * @param {!proto.jasper.vault.v1.MsgSignOptionPrice} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.jasper.vault.v1.MsgSignOptionPriceResponse>}
+ *     Promise that resolves to the response
+ */
+proto.jasper.vault.v1.MsgPromiseClient.prototype.signOptionPrice =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/jasper.vault.v1.Msg/SignOptionPrice',
+      request,
+      metadata || {},
+      methodDescriptor_Msg_SignOptionPrice);
+};
+
+
 module.exports = proto.jasper.vault.v1;
 

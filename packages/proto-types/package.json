@@ -1,6 +1,6 @@
 {
   "name": "@uptsmart/proto-types",
-  "version": "0.60.0",
+  "version": "0.60.2",
   "description": "Utility functions for working with WebSockets",
   "contributors": [
     "jasper <jasper@gmail.com>"

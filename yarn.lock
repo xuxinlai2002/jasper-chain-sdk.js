@@ -880,17 +880,17 @@
     long "^4.0.0"
     protobufjs "~6.10.2"
 
-"@uptsmart/proto-types@0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@uptsmart/proto-types/-/proto-types-0.60.0.tgz#cff7de14cdf5ce258ee3fba1f8f2118ffe7a95fb"
-  integrity sha512-jEo6tCqENtCyeUbtcPHAYKllvHBVHTsO5NIOoUtpRPkGeRSzmJusFXVK6cFyiv6OMMwt/KSKutWHe3w6GdszZw==
+"@uptsmart/proto-types@0.60.2":
+  version "0.60.2"
+  resolved "https://registry.yarnpkg.com/@uptsmart/proto-types/-/proto-types-0.60.2.tgz#43c3e8a55e16fb35c37d8243b3b214bbd2290299"
+  integrity sha512-9qiObtvTV3m3L4q0BoHzqEAKlLCeg4EO98tLIB1QDFL8AfujzMhsSOpFcObowOJypEU+sriWpJN5TTpCaTdXcA==
   dependencies:
     "@irisnet/irishub-sdk" "^2.0.1"
 
-"@uptsmart/stargate@^0.60.4":
-  version "0.60.4"
-  resolved "https://registry.yarnpkg.com/@uptsmart/stargate/-/stargate-0.60.4.tgz#dde709d9bbc7c8a0637a13a8a84e14eaae735d8a"
-  integrity sha512-GOKHmhd+e/7lJ+lIeE99rWqycrfqqJxq7XX827Ddk0+S7+GEKxtiCNPtogHIim2zakN+XNs7Kq099EvzD34fDg==
+"@uptsmart/stargate@^0.60.5":
+  version "0.60.5"
+  resolved "https://registry.yarnpkg.com/@uptsmart/stargate/-/stargate-0.60.5.tgz#a143f8e0a9a31516a22827576d4f2b724ac1ff04"
+  integrity sha512-Yhif9JoWOuqqnlShIS5FrNeRcqUfwEt8kxHRzPXxsdoHk1suRv03gkScKa4GZ75U/2MvxJfot2k9pkMv68pyOA==
   dependencies:
     "@confio/ics23" "^0.6.3"
     "@cosmjs/amino" "0.27.1"

@@ -20,6 +20,8 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
+var google_protobuf_descriptor_pb = require('google-protobuf/google/protobuf/descriptor_pb.js')
+
 var cosmos_base_query_v1beta1_pagination_pb = require('../../../cosmos/base/query/v1beta1/pagination_pb.js')
 
 var jasper_vault_v1_genesis_pb = require('../../../jasper/vault/v1/genesis_pb.js')
@@ -266,6 +268,189 @@ proto.jasper.vault.v1.QueryPromiseClient.prototype.signedOptionPayment =
       request,
       metadata || {},
       methodDescriptor_Query_SignedOptionPayment);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.jasper.vault.v1.QuerySignedOptionPricesRequest,
+ *   !proto.jasper.vault.v1.QuerySignedOptionPricesResponse>}
+ */
+const methodDescriptor_Query_SignedOptionPrices = new grpc.web.MethodDescriptor(
+  '/jasper.vault.v1.Query/SignedOptionPrices',
+  grpc.web.MethodType.UNARY,
+  proto.jasper.vault.v1.QuerySignedOptionPricesRequest,
+  proto.jasper.vault.v1.QuerySignedOptionPricesResponse,
+  /**
+   * @param {!proto.jasper.vault.v1.QuerySignedOptionPricesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.jasper.vault.v1.QuerySignedOptionPricesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.jasper.vault.v1.QuerySignedOptionPricesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.jasper.vault.v1.QuerySignedOptionPricesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.jasper.vault.v1.QuerySignedOptionPricesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.jasper.vault.v1.QueryClient.prototype.signedOptionPrices =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPrices',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPrices,
+      callback);
+};
+
+
+/**
+ * @param {!proto.jasper.vault.v1.QuerySignedOptionPricesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.jasper.vault.v1.QuerySignedOptionPricesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.jasper.vault.v1.QueryPromiseClient.prototype.signedOptionPrices =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPrices',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPrices);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.jasper.vault.v1.QuerySignedOptionPriceRequest,
+ *   !proto.jasper.vault.v1.QuerySignedOptionPriceResponse>}
+ */
+const methodDescriptor_Query_SignedOptionPrice = new grpc.web.MethodDescriptor(
+  '/jasper.vault.v1.Query/SignedOptionPrice',
+  grpc.web.MethodType.UNARY,
+  proto.jasper.vault.v1.QuerySignedOptionPriceRequest,
+  proto.jasper.vault.v1.QuerySignedOptionPriceResponse,
+  /**
+   * @param {!proto.jasper.vault.v1.QuerySignedOptionPriceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.jasper.vault.v1.QuerySignedOptionPriceResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.jasper.vault.v1.QuerySignedOptionPriceRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.jasper.vault.v1.QuerySignedOptionPriceResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.jasper.vault.v1.QuerySignedOptionPriceResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.jasper.vault.v1.QueryClient.prototype.signedOptionPrice =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPrice',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPrice,
+      callback);
+};
+
+
+/**
+ * @param {!proto.jasper.vault.v1.QuerySignedOptionPriceRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.jasper.vault.v1.QuerySignedOptionPriceResponse>}
+ *     Promise that resolves to the response
+ */
+proto.jasper.vault.v1.QueryPromiseClient.prototype.signedOptionPrice =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPrice',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPrice);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.jasper.vault.v1.PostSignedOptionPricesRequest,
+ *   !proto.jasper.vault.v1.QuerySignedOptionPriceResponse>}
+ */
+const methodDescriptor_Query_SignedOptionPriceByParams = new grpc.web.MethodDescriptor(
+  '/jasper.vault.v1.Query/SignedOptionPriceByParams',
+  grpc.web.MethodType.UNARY,
+  proto.jasper.vault.v1.PostSignedOptionPricesRequest,
+  proto.jasper.vault.v1.QuerySignedOptionPriceResponse,
+  /**
+   * @param {!proto.jasper.vault.v1.PostSignedOptionPricesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.jasper.vault.v1.QuerySignedOptionPriceResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.jasper.vault.v1.PostSignedOptionPricesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.jasper.vault.v1.QuerySignedOptionPriceResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.jasper.vault.v1.QuerySignedOptionPriceResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.jasper.vault.v1.QueryClient.prototype.signedOptionPriceByParams =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPriceByParams',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPriceByParams,
+      callback);
+};
+
+
+/**
+ * @param {!proto.jasper.vault.v1.PostSignedOptionPricesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.jasper.vault.v1.QuerySignedOptionPriceResponse>}
+ *     Promise that resolves to the response
+ */
+proto.jasper.vault.v1.QueryPromiseClient.prototype.signedOptionPriceByParams =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/jasper.vault.v1.Query/SignedOptionPriceByParams',
+      request,
+      metadata || {},
+      methodDescriptor_Query_SignedOptionPriceByParams);
 };
 
 

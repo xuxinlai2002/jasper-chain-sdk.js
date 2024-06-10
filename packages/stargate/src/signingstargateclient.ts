@@ -141,7 +141,7 @@ export const defaultRegistryTypes: ReadonlyArray<[string, GeneratedType]> = [
   //xxl 01 list 
   ["/jasper.vault.v1.MsgRegisterPublicKey", vault_tx_pb.MsgRegisterPublicKey],
   ["/jasper.vault.v1.MsgSignOptionPayment", vault_tx_pb.MsgSignOptionPayment],
- 
+  ["/jasper.vault.v1.MsgSignOptionPrice", vault_tx_pb.MsgSignOptionPrice],
 ];
 
 function createDefaultRegistry(): Registry {

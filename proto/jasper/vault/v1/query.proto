@@ -1,6 +1,7 @@
 syntax = "proto3";
 package jasper.vault.v1;
 
+import "google/protobuf/descriptor.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "jasper/vault/v1/genesis.proto";
 import "jasper/vault/v1/vault.proto";
@@ -16,14 +17,32 @@ service Query {
     option (google.api.http).get = "/jasper/vault/v1/public_key_pairs";
   }
 
-  // Retrieves  signed option payments
+  // Retrieves signed option payments
   rpc SignedOptionPayments(QuerySignedOptionPaymentsRequest) returns (QuerySignedOptionPaymentsResponse) {
     option (google.api.http).get = "/jasper/vault/v1/signed_option_payments";
   }
 
-  // SignedOptionPayment retrieves a signed option
+  // SignedOptionPayment retrieves a signed option payment
   rpc SignedOptionPayment(QuerySignedOptionPaymentRequest) returns (QuerySignedOptionPaymentResponse) {
     option (google.api.http).get = "/jasper/vault/v1/signed_option_payments/{proofs}";
+  }
+
+  // Retrieves a signed option prices
+  rpc SignedOptionPrices(QuerySignedOptionPricesRequest) returns (QuerySignedOptionPricesResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/signed_option_prices";
+  }
+
+  // SignedOptionPayment retrieves a signed option prices
+  rpc SignedOptionPrice(QuerySignedOptionPriceRequest) returns (QuerySignedOptionPriceResponse) {
+    option (google.api.http).get = "/jasper/vault/v1/signed_option_prices/{optionAsset}";
+  }
+
+  // BroadcastTx broadcast transaction.
+  rpc SignedOptionPriceByParams(PostSignedOptionPricesRequest) returns (QuerySignedOptionPriceResponse) {
+    option (google.api.http) = {
+      post: "/jasper/vault/v1/signed_option_prices_by_params"
+      body: "*"
+    };
   }
 
 }
@@ -59,7 +78,6 @@ message QuerySignedOptionPaymentsResponse {
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
-
 // QuerySignedOptionPaymentRequest is the request type for the Query/OptionPayment RPC
 // method.
 message QuerySignedOptionPaymentRequest {
@@ -72,3 +90,55 @@ message QuerySignedOptionPaymentRequest {
 message QuerySignedOptionPaymentResponse {
   SignOptionPayment signed_option_payment = 1 [ (gogoproto.nullable) = false ];
 }
+
+// QuerySignedOptionPricesRequest is the request type for the Query/SignedOptionPrices RPC
+// method.
+message QuerySignedOptionPricesRequest {
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryPublicKeyPairsResponse is the response type for the Query/SignedOptionPrices RPC
+// method.
+message QuerySignedOptionPricesResponse {
+  repeated SignOptionPrices signedOptionPrice = 1 [ (gogoproto.nullable) = false ];
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// QuerySignedOptionPriceRequest is the request type for the Query/OptionPrice RPC
+// method.
+message QuerySignedOptionPriceRequest {
+  // pagination defines an optional pagination for the request.
+  string optionAsset = 1 ;
+}
+
+// QueryPublicKeyPairsResponse is the response type for the Query/PublicKeyPairs RPC
+// method.
+message QuerySignedOptionPriceResponse {
+  SignOptionPrices signedOptionPrice = 1 [ (gogoproto.nullable) = false ];
+}
+
+// QuerySignedOptionPriceRequest is the request type for the Query/OptionPrice RPC
+// method.
+message PostSignedOptionPricesRequest {
+  repeated  PostSignedOptionPriceRequest params = 1;
+}
+
+
+// QuerySignedOptionPriceRequest is the request type for the Query/OptionPrice RPC
+// method.
+message PostSignedOptionPriceRequest {
+  option deprecated = true;
+  // pagination defines an optional pagination for the request.
+  string optionAsset = 1 ;
+  // strike price for option
+  uint32 strikePrice = 2;
+  // option expiration time
+  uint32 expireDate = 3;
+  // Option type: 0-call 1-put;
+  optional uint32 optionType = 4;
+}
+
+
+

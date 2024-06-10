@@ -40,3 +40,56 @@ message SignOptionPayment {
   string sender = 10;
 }
 
+
+// SignOptionPrice defines an instance that records sign option payment consisting of
+// option information
+message SignOptionPrice {
+  option (gogoproto.equal) = true;
+
+  // price id for retrieve
+  string id = 1;
+
+  // product type include:0-degen 1-swap 2-pro
+  uint32 productType = 2;
+
+  // option asset address:eth btc
+  string optionAsset = 3;
+
+  // strike price for option
+  uint32 strikePrice = 4;
+
+  // option expiration time
+  uint32 expireDate = 5;
+
+  // Option type: 0-call 1-put;
+  uint32 optionType = 6;
+
+  // premium asset
+  string premiumAsset = 7;
+
+  // premium fee
+  uint32 premiumFee = 8;
+
+  // timestamp
+  uint32 timestamp = 9;
+
+  // sender of the sign option
+  repeated string oracleSign = 10;
+
+}
+
+// SignOptionPrice defines an instance that records sign option payment consisting of
+// option information
+message SignOptionPrices {
+  option (gogoproto.equal) = true;
+
+  // price id for retrieve
+  string optionAsset = 1;
+
+  // valid time of sign time
+  uint32 validTime = 2;
+
+  repeated SignOptionPrice signOptionList = 3;
+
+}
+
